@@ -19,8 +19,8 @@
     }
   },
   "varsel": {
-    "aktiv": true,
-    "tekst": "PERSISTENSTEST 17.07 - skal overleve omstart",
+    "aktiv": false,
+    "tekst": "",
     "lenkje": ""
   },
   "heim": {
