@@ -76,7 +76,13 @@ function createApp() {
   app.use('/admin', require('./routes/admin'));
 
   app.use((req, res) => {
-    res.status(404).render('404', { seo: { tittel: 'Fann ikkje sida – Mesterbygg Stryn AS', beskriving: '' } });
+    res.status(404).render('404', {
+      utanCanonical: true,
+      seo: {
+        tittel: 'Fann ikkje sida – Mesterbygg Stryn AS',
+        beskriving: 'Sida du leita etter finst ikkje. Gå til framsida eller kontakt Mesterbygg Stryn AS.'
+      }
+    });
   });
 
   // eslint-disable-next-line no-unused-vars

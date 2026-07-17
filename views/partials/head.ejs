@@ -6,11 +6,13 @@
   <title><%= seo.tittel %></title>
   <% if (seo.beskriving) { %><meta name="description" content="<%= seo.beskriving %>"><% } %>
   <% if (!sitePublic) { %><meta name="robots" content="noindex, nofollow"><% } %>
+  <% if (typeof utanCanonical === 'undefined') { %>
   <link rel="canonical" href="<%= siteUrl %><%= path %>">
-  <meta property="og:title" content="<%= seo.tittel %>">
-  <meta property="og:description" content="<%= seo.beskriving %>">
-  <meta property="og:type" content="website">
   <meta property="og:url" content="<%= siteUrl %><%= path %>">
+  <% } %>
+  <meta property="og:title" content="<%= seo.tittel %>">
+  <% if (seo.beskriving) { %><meta property="og:description" content="<%= seo.beskriving %>"><% } %>
+  <meta property="og:type" content="website">
   <meta property="og:locale" content="nn_NO">
   <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>

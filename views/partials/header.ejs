@@ -10,7 +10,7 @@
   <div class="ramme topplinje-inner">
     <span><%= c.site.slagord %></span>
     <span class="topplinje-kontakt">
-      <a href="<%= telHref(c.site.telefon) %>">📞 <%= c.site.telefon %></a>
+      <a href="<%= telHref(c.site.telefon) %>"><span aria-hidden="true">📞</span> <%= c.site.telefon %></a>
       <a class="skjul-mobil" href="mailto:<%= c.site.epost %>"><%= c.site.epost %></a>
     </span>
   </div>
