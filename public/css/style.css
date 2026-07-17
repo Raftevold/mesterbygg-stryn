@@ -106,7 +106,7 @@ a.varsellinje:hover { background: var(--rav-lys); color: #241503; }
 .logo-merke { width: 40px; height: 33px; color: var(--gron); }
 .logo-tekst { display: flex; flex-direction: column; line-height: 1.05; }
 .logo-tekst strong { font-weight: 800; letter-spacing: 0.04em; font-size: 1.05rem; color: var(--blekk); }
-.logo-tekst span { font-weight: 600; letter-spacing: 0.34em; font-size: 0.72rem; color: var(--rav); }
+.logo-tekst span { font-weight: 700; letter-spacing: 0.34em; font-size: 0.72rem; color: #8a5312; }
 
 .meny { display: flex; align-items: center; gap: 0.4rem; list-style: none; }
 .meny a:not(.knapp) {
