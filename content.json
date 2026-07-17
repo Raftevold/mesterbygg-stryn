@@ -5,13 +5,24 @@
     "slagord": "Mesterbedrift i tømrarfaget – Stryn og Nordfjord",
     "telefon": "97 19 94 42",
     "epost": "aroberg.jobb@gmail.com",
-    "adresse": { "gate": "Smieberget 11", "postnr": "6783", "stad": "Stryn" },
+    "adresse": {
+      "gate": "Smieberget 11",
+      "postnr": "6783",
+      "stad": "Stryn"
+    },
     "orgnr": "933 537 552",
     "omrade": "Stryn og Nordfjord",
     "opningstider": "",
-    "sosiale": { "facebook": "", "instagram": "" }
+    "sosiale": {
+      "facebook": "",
+      "instagram": ""
+    }
   },
-  "varsel": { "aktiv": false, "tekst": "", "lenkje": "" },
+  "varsel": {
+    "aktiv": true,
+    "tekst": "PERSISTENSTEST 17.07 - skal overleve omstart",
+    "lenkje": ""
+  },
   "heim": {
     "heroTittel": "Solid handverk frå godkjend mesterbedrift i Stryn",
     "heroIngress": "Mesterbygg Stryn AS er ei mesterbedrift i tømrarfaget med fem tilsette i Nordfjord. Vi tek på oss nybygg, tømrararbeid og vedlikehald av bygningar – og gir deg gjerne eit uforpliktande tilbod.",
@@ -65,8 +76,14 @@
     "ingress": "Mesterbygg Stryn AS er eit byggjefirma i Stryn i Nordfjord med fem tilsette. Vi er godkjend mesterbedrift i tømrarfaget og tek på oss tømrararbeid, oppføring og vedlikehald av bygningar.",
     "brodtekst": "Selskapet vart stifta i april 2024 og held til på Smieberget i Stryn. Bedrifta er registrert i Føretaksregisteret og Meirverdiavgiftsregisteret (org.nr 933 537 552).\n\nVi er registrert mesterbedrift i Mesterregisteret, og styreleiaren vår er bygg-/tømrarmeister. I tillegg er vi godkjend lærebedrift i tømrarfaget – vi tek samfunnsansvar og er med på å utdanne morgondagens fagfolk.",
     "folk": [
-      { "namn": "Alexander Røberg", "rolle": "Dagleg leiar" },
-      { "namn": "Stig Tisthamar", "rolle": "Styreleiar · Bygg-/tømrarmeister" }
+      {
+        "namn": "Alexander Røberg",
+        "rolle": "Dagleg leiar"
+      },
+      {
+        "namn": "Stig Tisthamar",
+        "rolle": "Styreleiar · Bygg-/tømrarmeister"
+      }
     ]
   },
   "referansar": {
