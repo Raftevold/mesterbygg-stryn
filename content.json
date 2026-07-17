@@ -1,0 +1,106 @@
+{
+  "site": {
+    "namn": "Mesterbygg Stryn AS",
+    "kortnamn": "Mesterbygg Stryn",
+    "slagord": "Mesterbedrift i tømrarfaget – Stryn og Nordfjord",
+    "telefon": "97 19 94 42",
+    "epost": "aroberg.jobb@gmail.com",
+    "adresse": { "gate": "Smieberget 11", "postnr": "6783", "stad": "Stryn" },
+    "orgnr": "933 537 552",
+    "omrade": "Stryn og Nordfjord",
+    "opningstider": "",
+    "sosiale": { "facebook": "", "instagram": "" }
+  },
+  "varsel": { "aktiv": false, "tekst": "", "lenkje": "" },
+  "heim": {
+    "heroTittel": "Solid handverk frå godkjend mesterbedrift i Stryn",
+    "heroIngress": "Mesterbygg Stryn AS er ei mesterbedrift i tømrarfaget med fem tilsette i Nordfjord. Vi tek på oss nybygg, tømrararbeid og vedlikehald av bygningar – og gir deg gjerne eit uforpliktande tilbod.",
+    "heroBilete": "",
+    "punkt": [
+      {
+        "tittel": "Godkjend mesterbedrift",
+        "tekst": "Bedrifta er registrert i Mesterregisteret med meister i tømrarfaget. Det er tryggleiken din for fagmessig utført arbeid."
+      },
+      {
+        "tittel": "Lokal i Nordfjord",
+        "tekst": "Vi held til i Stryn og tek oppdrag i Stryn og Nordfjord. Kort veg, lokal kjennskap og folk du kan snakke direkte med."
+      },
+      {
+        "tittel": "Godkjend lærebedrift",
+        "tekst": "Vi er godkjend lærebedrift i tømrarfaget og er med på å utdanne nye fagfolk til bransjen."
+      }
+    ]
+  },
+  "tenester": [
+    {
+      "id": "t1",
+      "slug": "nybygg",
+      "tittel": "Nybygg",
+      "kort": "Komplett oppføring av bygningar – frå planlegging til ferdig bygg.",
+      "brodtekst": "Vi fører opp bygningar frå grunnen av, og følgjer prosjektet frå planlegging til overlevering. Som godkjend mesterbedrift i tømrarfaget står vi ansvarleg for at arbeidet blir fagmessig utført.\n\nTa kontakt og fortel om planane dine, så gir vi deg eit uforpliktande tilbod.",
+      "bilete": ""
+    },
+    {
+      "id": "t2",
+      "slug": "tomrararbeid",
+      "tittel": "Tømrararbeid",
+      "kort": "Alt av tømrararbeid – store og små oppdrag.",
+      "brodtekst": "Tømrararbeid er kjernen i faget vårt. Vi tek på oss både store og små tømraroppdrag, og du får fagfolk med meisterkompetanse i ryggen.\n\nUsikker på om jobben passar for oss? Ring oss – det kostar ingenting å spørje.",
+      "bilete": ""
+    },
+    {
+      "id": "t3",
+      "slug": "vedlikehald-og-rehabilitering",
+      "tittel": "Vedlikehald og rehabilitering",
+      "kort": "Vi tek vare på bygningen din – frå små utbetringar til større rehabilitering.",
+      "brodtekst": "Bygningar treng jamleg vedlikehald, særleg med vêret vi har på Vestlandet. Vi utfører vedlikehald og rehabilitering av bygningar, slik at verdiane dine varer lenger.\n\nTa kontakt for ei vurdering av kva bygningen din treng.",
+      "bilete": ""
+    }
+  ],
+  "prosjekt": {
+    "ingress": "Her viser vi fram arbeid vi har gjort. Galleriet blir fylt med bilete frå bedrifta sine eigne prosjekt.",
+    "liste": []
+  },
+  "omOss": {
+    "ingress": "Mesterbygg Stryn AS er eit byggjefirma i Stryn i Nordfjord med fem tilsette. Vi er godkjend mesterbedrift i tømrarfaget og tek på oss tømrararbeid, oppføring og vedlikehald av bygningar.",
+    "brodtekst": "Selskapet vart stifta i april 2024 og held til på Smieberget i Stryn. Bedrifta er registrert i Føretaksregisteret og Meirverdiavgiftsregisteret (org.nr 933 537 552).\n\nVi er registrert mesterbedrift i Mesterregisteret, og styreleiaren vår er bygg-/tømrarmeister. I tillegg er vi godkjend lærebedrift i tømrarfaget – vi tek samfunnsansvar og er med på å utdanne morgondagens fagfolk.",
+    "folk": [
+      { "namn": "Alexander Røberg", "rolle": "Dagleg leiar" },
+      { "namn": "Stig Tisthamar", "rolle": "Styreleiar · Bygg-/tømrarmeister" }
+    ]
+  },
+  "referansar": {
+    "vis": false,
+    "liste": []
+  },
+  "kontakt": {
+    "ingress": "Fortel oss kort om prosjektet ditt, så tek vi kontakt så snart vi kan. Du kan òg ringje eller sende e-post direkte – det som passar deg best."
+  },
+  "seo": {
+    "heim": {
+      "tittel": "Mesterbygg Stryn AS – Byggjefirma og mesterbedrift i Stryn",
+      "beskriving": "Mesterbygg Stryn AS er ei godkjend mesterbedrift i tømrarfaget i Stryn i Nordfjord. Nybygg, tømrararbeid og vedlikehald. Ring 97 19 94 42 for uforpliktande tilbod."
+    },
+    "tenester": {
+      "tittel": "Tenester – Mesterbygg Stryn AS",
+      "beskriving": "Nybygg, tømrararbeid, vedlikehald og rehabilitering i Stryn og Nordfjord. Godkjend mesterbedrift i tømrarfaget. Be om uforpliktande tilbod."
+    },
+    "prosjekt": {
+      "tittel": "Prosjekt – Mesterbygg Stryn AS",
+      "beskriving": "Sjå prosjekt og arbeid utført av Mesterbygg Stryn AS, mesterbedrift i tømrarfaget i Stryn og Nordfjord."
+    },
+    "omOss": {
+      "tittel": "Om oss – Mesterbygg Stryn AS",
+      "beskriving": "Mesterbygg Stryn AS er ei mesterbedrift i tømrarfaget med fem tilsette i Stryn. Godkjend lærebedrift. Stifta 2024, org.nr 933 537 552."
+    },
+    "kontakt": {
+      "tittel": "Kontakt oss – Mesterbygg Stryn AS",
+      "beskriving": "Kontakt Mesterbygg Stryn AS for eit uforpliktande tilbod. Telefon 97 19 94 42. Smieberget 11, 6783 Stryn."
+    },
+    "personvern": {
+      "tittel": "Personvern – Mesterbygg Stryn AS",
+      "beskriving": "Personvernerklæring for nettsidene til Mesterbygg Stryn AS."
+    }
+  },
+  "bilete": []
+}
