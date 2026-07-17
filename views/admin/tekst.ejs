@@ -1,0 +1,66 @@
+<%- include('partials/admin-topp', { tittel: 'Tekstinnhald', aktiv: 'tekst' }) %>
+
+<section class="a-seksjon">
+  <h2>Framsida (hero)</h2>
+  <form method="post" action="/admin/tekst/heim">
+    <label for="heroTittel">Hovudoverskrift</label>
+    <input id="heroTittel" name="heroTittel" value="<%= c.heim.heroTittel %>" maxlength="90">
+    <label for="heroIngress">Ingress</label>
+    <textarea id="heroIngress" name="heroIngress" rows="3" maxlength="400"><%= c.heim.heroIngress %></textarea>
+    <label for="heroBilete">Hero-bilete (valfritt)</label>
+    <select id="heroBilete" name="heroBilete">
+      <option value="">– Ingen (vis berre tekst) –</option>
+      <% c.bilete.forEach((b) => { %>
+        <option value="<%= b.fil %>" <%= c.heim.heroBilete === b.fil ? 'selected' : '' %>><%= b.fil %></option>
+      <% }) %>
+    </select>
+    <fieldset>
+      <legend>Dei tre punkta under heroen</legend>
+      <% [0,1,2].forEach((i) => { const p = c.heim.punkt[i] || { tittel: '', tekst: '' }; %>
+        <label for="punktTittel<%= i %>">Punkt <%= i + 1 %> – tittel</label>
+        <input id="punktTittel<%= i %>" name="punktTittel<%= i %>" value="<%= p.tittel %>" maxlength="60">
+        <label for="punktTekst<%= i %>">Punkt <%= i + 1 %> – tekst</label>
+        <textarea id="punktTekst<%= i %>" name="punktTekst<%= i %>" rows="2" maxlength="300"><%= p.tekst %></textarea>
+      <% }) %>
+    </fieldset>
+    <button class="a-knapp" type="submit">Lagre framsida</button>
+  </form>
+</section>
+
+<section class="a-seksjon">
+  <h2>Om oss</h2>
+  <form method="post" action="/admin/tekst/omoss">
+    <label for="ingress">Ingress</label>
+    <textarea id="ingress" name="ingress" rows="3" maxlength="400"><%= c.omOss.ingress %></textarea>
+    <label for="brodtekst">Brødtekst</label>
+    <textarea id="brodtekst" name="brodtekst" rows="8"><%= c.omOss.brodtekst %></textarea>
+    <fieldset>
+      <legend>Folka i bedrifta</legend>
+      <% c.omOss.folk.forEach((f, i) => { %>
+        <div class="a-rad-3">
+          <div><label for="folkNamn<%= i %>">Namn</label><input id="folkNamn<%= i %>" name="folkNamn<%= i %>" value="<%= f.namn %>"></div>
+          <div><label for="folkRolle<%= i %>">Rolle</label><input id="folkRolle<%= i %>" name="folkRolle<%= i %>" value="<%= f.rolle %>"></div>
+          <label class="a-slett"><input type="checkbox" name="folkSlett<%= i %>"> Slett</label>
+        </div>
+      <% }) %>
+      <div class="a-rad-3">
+        <div><label for="folkNamn<%= c.omOss.folk.length %>">Nytt namn</label><input id="folkNamn<%= c.omOss.folk.length %>" name="folkNamn<%= c.omOss.folk.length %>" placeholder="Legg til person"></div>
+        <div><label for="folkRolle<%= c.omOss.folk.length %>">Rolle</label><input id="folkRolle<%= c.omOss.folk.length %>" name="folkRolle<%= c.omOss.folk.length %>" placeholder="T.d. Tømrar"></div>
+      </div>
+    </fieldset>
+    <button class="a-knapp" type="submit">Lagre om oss</button>
+  </form>
+</section>
+
+<section class="a-seksjon">
+  <h2>Andre tekstar</h2>
+  <form method="post" action="/admin/tekst/kontakt">
+    <label for="kontaktIngress">Ingress på kontaktsida</label>
+    <textarea id="kontaktIngress" name="ingress" rows="2" maxlength="300"><%= c.kontakt.ingress %></textarea>
+    <label for="prosjektIngress">Ingress på prosjektsida</label>
+    <textarea id="prosjektIngress" name="prosjektIngress" rows="2" maxlength="300"><%= c.prosjekt.ingress %></textarea>
+    <button class="a-knapp" type="submit">Lagre</button>
+  </form>
+</section>
+
+<%- include('partials/admin-botn') %>

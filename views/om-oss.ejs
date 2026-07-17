@@ -1,0 +1,60 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<section class="sidetopp">
+  <div class="ramme">
+    <h1>Om oss</h1>
+    <p class="ingress"><%= c.omOss.ingress %></p>
+  </div>
+</section>
+
+<section class="seksjon">
+  <div class="ramme delt">
+    <div class="brodtekst reveal">
+      <p><%- nl2br(c.omOss.brodtekst) %></p>
+    </div>
+    <aside class="kort fakta-kort reveal">
+      <h2>Fakta</h2>
+      <ul class="fakta-liste">
+        <li><strong>Firmanamn</strong> <%= c.site.namn %></li>
+        <li><strong>Org.nr</strong> <%= c.site.orgnr %></li>
+        <li><strong>Stifta</strong> April 2024</li>
+        <li><strong>Tilsette</strong> 5</li>
+        <li><strong>Adresse</strong> <%= c.site.adresse.gate %>, <%= c.site.adresse.postnr %> <%= c.site.adresse.stad %></li>
+        <li><strong>Godkjenningar</strong> Mesterbedrift (Mesterregisteret) · Lærebedrift i tømrarfaget</li>
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<section class="seksjon seksjon-sand">
+  <div class="ramme">
+    <h2 class="reveal">Folka</h2>
+    <div class="kort-rad">
+      <% c.omOss.folk.forEach((f, i) => { %>
+        <article class="kort person-kort reveal" style="--forseink: <%= i * 90 %>ms">
+          <div class="person-init" aria-hidden="true"><%= f.namn.split(' ').map(n => n[0]).join('') %></div>
+          <h3><%= f.namn %></h3>
+          <p><%= f.rolle %></p>
+        </article>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<section class="seksjon seksjon-mork">
+  <div class="ramme delt reveal">
+    <div>
+      <h2>Lærebedrift – vi satsar på faget</h2>
+      <p>Mesterbygg Stryn AS er godkjend lærebedrift i tømrarfaget (Vg3). Det betyr at fylkeskommunen har vurdert at vi har fagkompetansen og opplæringsmiljøet som skal til for å utdanne lærlingar.</p>
+      <p>Er du lærling eller skuleelev og interessert i tømrarfaget? Ta gjerne kontakt.</p>
+    </div>
+    <ul class="merke-liste">
+      <li><strong>Tømrarfaget Vg3</strong><span>Godkjend opplæringsløp</span></li>
+      <li><strong>Meister i bedrifta</strong><span>Fagleg leiing med mesterbrev</span></li>
+    </ul>
+  </div>
+</section>
+
+<%- include('partials/cta-band') %>
+<%- include('partials/footer') %>

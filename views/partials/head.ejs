@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="nn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= seo.tittel %></title>
+  <% if (seo.beskriving) { %><meta name="description" content="<%= seo.beskriving %>"><% } %>
+  <% if (!sitePublic) { %><meta name="robots" content="noindex, nofollow"><% } %>
+  <link rel="canonical" href="<%= siteUrl %><%= path %>">
+  <meta property="og:title" content="<%= seo.tittel %>">
+  <meta property="og:description" content="<%= seo.beskriving %>">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="<%= siteUrl %><%= path %>">
+  <meta property="og:locale" content="nn_NO">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/style.css">
+  <script type="application/ld+json"><%- JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'GeneralContractor',
+    name: c.site.namn,
+    telephone: '+47' + c.site.telefon.replace(/\D/g, ''),
+    email: c.site.epost,
+    url: siteUrl,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: c.site.adresse.gate,
+      postalCode: c.site.adresse.postnr,
+      addressLocality: c.site.adresse.stad,
+      addressCountry: 'NO'
+    },
+    areaServed: c.site.omrade,
+    foundingDate: '2024-04-19',
+    identifier: { '@type': 'PropertyValue', propertyID: 'Organisasjonsnummer', value: c.site.orgnr.replace(/\s/g, '') },
+    ...(c.site.sosiale.facebook || c.site.sosiale.instagram
+      ? { sameAs: [c.site.sosiale.facebook, c.site.sosiale.instagram].filter(Boolean) }
+      : {})
+  }) %></script>
+</head>
+<body>
+<a class="hopp-lenkje" href="#hovudinnhald">Hopp til hovudinnhaldet</a>

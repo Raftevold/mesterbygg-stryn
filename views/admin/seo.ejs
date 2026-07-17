@@ -1,0 +1,21 @@
+<%- include('partials/admin-topp', { tittel: 'SEO – titlar og skildringar', aktiv: 'seo' }) %>
+
+<p class="a-ingress">Tittelen og skildringa er det folk ser i Google-søk. Hald tittelen under ca. 60 teikn og skildringa under ca. 155 teikn.</p>
+
+<section class="a-seksjon">
+  <form method="post" action="/admin/seo">
+    <% const namn = { heim: 'Framsida', tenester: 'Tenester', prosjekt: 'Prosjekt', omOss: 'Om oss', kontakt: 'Kontakt', personvern: 'Personvern' }; %>
+    <% Object.keys(c.seo).forEach((side) => { %>
+      <fieldset>
+        <legend><%= namn[side] || side %></legend>
+        <label for="tittel_<%= side %>">Tittel</label>
+        <input id="tittel_<%= side %>" name="tittel_<%= side %>" value="<%= c.seo[side].tittel %>" maxlength="70">
+        <label for="beskriving_<%= side %>">Skildring</label>
+        <textarea id="beskriving_<%= side %>" name="beskriving_<%= side %>" rows="2" maxlength="170"><%= c.seo[side].beskriving %></textarea>
+      </fieldset>
+    <% }) %>
+    <button class="a-knapp" type="submit">Lagre SEO</button>
+  </form>
+</section>
+
+<%- include('partials/admin-botn') %>

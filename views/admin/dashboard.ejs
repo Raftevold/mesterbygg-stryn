@@ -1,0 +1,24 @@
+<%- include('partials/admin-topp', { tittel: 'Oversikt', aktiv: 'oversikt' }) %>
+
+<p class="a-ingress">Her endrar du innhaldet på nettsida til Mesterbygg Stryn AS. Alt du lagrar blir synleg på sida med ein gong – ingen kode nødvendig.</p>
+
+<div class="a-kort-rad">
+  <a class="a-kort" href="/admin/tekst"><strong>📝 Tekst</strong><span>Overskrifter, brødtekst og «om oss»</span></a>
+  <a class="a-kort" href="/admin/tenester"><strong>🔨 Tenester</strong><span>Legg til, endre eller fjern tenester</span></a>
+  <a class="a-kort" href="/admin/prosjekt"><strong>🏠 Prosjekt</strong><span>Vis fram arbeid de har gjort</span></a>
+  <a class="a-kort" href="/admin/bilete"><strong>🖼️ Bilete</strong><span>Last opp og administrer bilete</span></a>
+  <a class="a-kort" href="/admin/referansar"><strong>💬 Referansar</strong><span>Kundeomtalar (hugs samtykke!)</span></a>
+  <a class="a-kort" href="/admin/kontaktinfo"><strong>📞 Kontaktinfo</strong><span>Telefon, e-post, adresse, opningstider</span></a>
+  <a class="a-kort" href="/admin/varsel"><strong>📣 Varsellinje</strong><span>Melding øvst på alle sider (ferie o.l.)</span></a>
+  <a class="a-kort" href="/admin/seo"><strong>🔍 SEO</strong><span>Titlar og skildringar i Google</span></a>
+  <a class="a-kort" href="/admin/forespurnader"><strong>📥 Førespurnader <%= talSubmissions ? `(${talSubmissions})` : '' %></strong><span>Innsende kontaktskjema</span></a>
+</div>
+
+<h2>Status</h2>
+<ul class="a-status">
+  <li><%= lager === 'lokal' ? '⚠️' : '✅' %> Langtidslagring: <%= lager === 'postgres' ? 'database (Postgres) – endringar og bilete overlever omstart og redeploy' : lager === 'github' ? 'GitHub – endringar overlever omstart' : 'BERRE lokale filer – endringar kan gå tapt ved redeploy' %></li>
+  <li><%= smtpAktiv ? '✅' : 'ℹ️' %> E-postvarsling: <%= smtpAktiv ? 'aktiv – førespurnader blir sende på e-post' : 'ikkje sett opp – førespurnader finn du berre under «Førespurnader»' %></li>
+  <li><%= sitePublic ? '🌍 Sida er open for søkjemotorar (Google kan indeksere).' : '🔒 Demo-modus: sida er skjult for søkjemotorar (noindex) til ho er godkjend.' %></li>
+</ul>
+
+<%- include('partials/admin-botn') %>

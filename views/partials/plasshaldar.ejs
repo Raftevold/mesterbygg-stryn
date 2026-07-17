@@ -1,0 +1,19 @@
+<%# Tydeleg merkt plasshaldar for bilete vi ikkje har enno %>
+<div class="plasshaldar" role="img" aria-label="Plasshaldar – her kjem foto frå <%= c.site.kortnamn %>">
+  <svg viewBox="0 0 400 260" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="ph-himmel" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#2a4a3b"/>
+        <stop offset="1" stop-color="#1e3a2f"/>
+      </linearGradient>
+    </defs>
+    <rect width="400" height="260" fill="url(#ph-himmel)"/>
+    <path d="M0 190 L80 110 L150 175 L230 90 L320 180 L400 120 L400 260 L0 260 Z" fill="#16281f" opacity="0.85"/>
+    <g stroke="#e4a05c" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M150 210 L200 165 L250 210"/>
+      <path d="M163 198 L163 226 M237 198 L237 226"/>
+      <path d="M155 226 L245 226"/>
+    </g>
+  </svg>
+  <span class="plasshaldar-merke">PLASSHALDAR – her kjem eige foto</span>
+</div>

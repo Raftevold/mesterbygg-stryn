@@ -1,0 +1,43 @@
+<%- include('partials/admin-topp', { tittel: 'Tenester', aktiv: 'tenester' }) %>
+
+<p class="a-ingress">Tenestene blir viste på framsida og på /tenester. Kvar teneste får si eiga underside.</p>
+
+<% c.tenester.forEach((t) => { %>
+<section class="a-seksjon">
+  <h2><%= t.tittel %> <span class="a-svak">(/tenester/<%= t.slug %>)</span></h2>
+  <form method="post" action="/admin/tenester/<%= t.id %>">
+    <label for="tittel-<%= t.id %>">Tittel</label>
+    <input id="tittel-<%= t.id %>" name="tittel" value="<%= t.tittel %>" maxlength="60">
+    <label for="kort-<%= t.id %>">Kort skildring (vist på kort og i Google)</label>
+    <input id="kort-<%= t.id %>" name="kort" value="<%= t.kort %>" maxlength="160">
+    <label for="brodtekst-<%= t.id %>">Brødtekst på undersida</label>
+    <textarea id="brodtekst-<%= t.id %>" name="brodtekst" rows="6"><%= t.brodtekst %></textarea>
+    <label for="bilete-<%= t.id %>">Bilete</label>
+    <select id="bilete-<%= t.id %>" name="bilete">
+      <option value="">– Plasshaldar (ingen bilete enno) –</option>
+      <% c.bilete.forEach((b) => { %>
+        <option value="<%= b.fil %>" <%= t.bilete === b.fil ? 'selected' : '' %>><%= b.fil %></option>
+      <% }) %>
+    </select>
+    <div class="a-knapp-rad">
+      <button class="a-knapp" type="submit">Lagre</button>
+      <label class="a-slett"><input type="checkbox" name="slett"> Slett tenesta når eg lagrar</label>
+    </div>
+  </form>
+</section>
+<% }) %>
+
+<section class="a-seksjon a-seksjon-ny">
+  <h2>➕ Ny teneste</h2>
+  <form method="post" action="/admin/tenester/ny">
+    <label for="ny-tittel">Tittel</label>
+    <input id="ny-tittel" name="tittel" maxlength="60" placeholder="T.d. Flislegging">
+    <label for="ny-kort">Kort skildring</label>
+    <input id="ny-kort" name="kort" maxlength="160">
+    <label for="ny-brodtekst">Brødtekst</label>
+    <textarea id="ny-brodtekst" name="brodtekst" rows="4"></textarea>
+    <button class="a-knapp" type="submit">Opprett teneste</button>
+  </form>
+</section>
+
+<%- include('partials/admin-botn') %>

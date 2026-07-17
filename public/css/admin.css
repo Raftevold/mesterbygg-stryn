@@ -1,0 +1,91 @@
+/* Admin for Mesterbygg Stryn – enkelt, tydeleg, mobilvennleg */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: #1c2722; background: #f2f4f1; line-height: 1.6; font-size: 1rem;
+}
+a { color: #1e5c40; }
+h1 { font-size: 1.7rem; margin: 1.2rem 0 0.8rem; }
+h2 { font-size: 1.15rem; margin-bottom: 0.7rem; }
+img { max-width: 100%; height: auto; display: block; }
+
+:focus-visible { outline: 3px solid #c9803c; outline-offset: 2px; border-radius: 3px; }
+
+.a-ramme { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+.a-hovud { padding-bottom: 4rem; }
+
+.a-topp { background: #152a21; color: #fff; }
+.a-topp-inner { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; padding: 0.6rem 1rem; }
+.a-logo { color: #fff; font-weight: 700; text-decoration: none; margin-right: auto; }
+.a-meny { display: flex; flex-wrap: wrap; gap: 0.1rem; list-style: none; }
+.a-meny a { color: #cfe0d6; text-decoration: none; padding: 0.35rem 0.55rem; border-radius: 6px; font-size: 0.92rem; }
+.a-meny a:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.a-meny a[aria-current="page"] { background: #c9803c; color: #241503; font-weight: 700; }
+.a-topp-hogre { display: flex; align-items: center; gap: 0.8rem; }
+.a-topp-hogre a { color: #cfe0d6; font-size: 0.92rem; }
+
+.a-ingress { color: #48564f; max-width: 70ch; margin-bottom: 1.2rem; }
+
+.a-kort-rad { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.9rem; margin-bottom: 2rem; }
+.a-kort {
+  background: #fff; border: 1px solid #dcd6cc; border-radius: 10px; padding: 1rem 1.1rem;
+  text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 0.2rem;
+}
+.a-kort:hover { border-color: #1e3a2f; box-shadow: 0 4px 14px rgba(21,42,33,0.10); }
+.a-kort span { color: #48564f; font-size: 0.9rem; }
+
+.a-seksjon { background: #fff; border: 1px solid #dcd6cc; border-radius: 10px; padding: 1.3rem; margin-bottom: 1.2rem; }
+.a-seksjon-ny { border-style: dashed; }
+.a-svak { color: #7a857f; font-weight: 400; font-size: 0.85em; }
+
+label { display: block; font-weight: 600; margin: 0.8rem 0 0.25rem; font-size: 0.95rem; }
+input:not([type="checkbox"]):not([type="file"]), textarea, select {
+  width: 100%; padding: 0.6rem 0.7rem; border: 1.5px solid #b9c2bc; border-radius: 8px;
+  font: inherit; background: #fff; color: #1c2722;
+}
+input:focus, textarea:focus, select:focus { border-color: #1e3a2f; }
+fieldset { border: 1px solid #dcd6cc; border-radius: 8px; padding: 0.9rem 1rem 1.1rem; margin: 1rem 0; }
+legend { font-weight: 700; padding: 0 0.4rem; }
+
+.a-rad-3 { display: grid; grid-template-columns: 1fr 1fr auto; gap: 0.8rem; align-items: end; }
+.a-rad-3 > div:only-child { grid-column: 1 / -1; }
+
+.a-knapp {
+  display: inline-block; margin-top: 1rem; padding: 0.65rem 1.3rem; border: 0; border-radius: 8px;
+  background: #1e3a2f; color: #fff; font: inherit; font-weight: 700; cursor: pointer;
+}
+.a-knapp:hover { background: #2c5343; }
+.a-knapp-raud { background: #a33327; }
+.a-knapp-raud:hover { background: #c04333; }
+.a-knapp-grå, .a-knapp-gra { background: #48564f; }
+.a-knapp-liten { padding: 0.4rem 0.9rem; font-size: 0.9rem; margin-top: 0.5rem; }
+.a-knapp-rad { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
+
+.a-slett { display: flex; align-items: center; gap: 0.45rem; font-weight: 600; margin-top: 1rem; }
+.a-slett input { width: 1.1rem; height: 1.1rem; }
+
+.a-melding { border-radius: 8px; padding: 0.8rem 1rem; margin: 0.8rem 0; }
+.a-melding-ok { background: #e3f2e8; border: 1.5px solid #2e7d4f; color: #14402a; }
+.a-melding-feil { background: #fbe9e7; border: 1.5px solid #b3402e; color: #6e2417; }
+.a-melding-info { background: #fdf3e4; border: 1.5px solid #c9803c; color: #5a3a14; }
+
+.a-status { list-style: none; margin: 0.6rem 0 1rem; }
+.a-status li { padding: 0.25rem 0; }
+
+.a-sitat { background: #f2f4f1; border-left: 4px solid #1e3a2f; padding: 0.7rem 1rem; border-radius: 0 8px 8px 0; white-space: pre-wrap; }
+
+.a-bilete-rad { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1rem; }
+.a-bilete-kort { background: #f2f4f1; border-radius: 8px; padding: 0.7rem; }
+.a-bilete-kort img { border-radius: 6px; object-fit: cover; width: 100%; aspect-ratio: 3/2; }
+.a-bilete-kort figcaption { font-size: 0.78rem; color: #48564f; word-break: break-all; margin-top: 0.4rem; }
+
+.a-login-side { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #152a21; padding: 1rem; }
+.a-login-boks { background: #fff; border-radius: 14px; padding: 2rem; width: 100%; max-width: 380px; }
+.a-login-boks h1 { font-size: 1.3rem; margin: 0 0 1rem; }
+.a-login-boks h1 span { color: #48564f; font-size: 0.95rem; font-weight: 500; }
+.a-login-boks .a-knapp { width: 100%; }
+.a-login-fot { margin-top: 1.2rem; font-size: 0.9rem; }
+
+@media (max-width: 700px) {
+  .a-rad-3 { grid-template-columns: 1fr; align-items: stretch; }
+}

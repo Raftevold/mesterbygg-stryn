@@ -1,0 +1,21 @@
+{
+  "name": "mesterbygg-stryn",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Nettside for Mesterbygg Stryn AS",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "multer": "^2.0.1",
+    "nodemailer": "^7.0.5",
+    "pg": "^8.22.0",
+    "sharp": "^0.34.2"
+  }
+}

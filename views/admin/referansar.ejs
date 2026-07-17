@@ -1,0 +1,42 @@
+<%- include('partials/admin-topp', { tittel: 'Referansar', aktiv: 'referansar' }) %>
+
+<p class="a-melding a-melding-info">⚠️ Hugs: innhent alltid samtykke frå kunden før de publiserer namn eller omtale. Kjem omtalen frå Google, skriv «frå Google-omtalar» i kjelde-feltet.</p>
+
+<section class="a-seksjon">
+  <form method="post" action="/admin/referansar/vis">
+    <label class="a-slett"><input type="checkbox" name="vis" <%= c.referansar.vis ? 'checked' : '' %>> Vis referansar på framsida</label>
+    <button class="a-knapp" type="submit">Lagre val</button>
+  </form>
+</section>
+
+<% c.referansar.liste.forEach((r) => { %>
+<section class="a-seksjon">
+  <form method="post" action="/admin/referansar/<%= r.id %>">
+    <label for="tekst-<%= r.id %>">Omtale</label>
+    <textarea id="tekst-<%= r.id %>" name="tekst" rows="3"><%= r.tekst %></textarea>
+    <div class="a-rad-3">
+      <div><label for="namn-<%= r.id %>">Namn</label><input id="namn-<%= r.id %>" name="namn" value="<%= r.namn %>"></div>
+      <div><label for="kjelde-<%= r.id %>">Kjelde</label><input id="kjelde-<%= r.id %>" name="kjelde" value="<%= r.kjelde %>" placeholder="T.d. frå Google-omtalar"></div>
+    </div>
+    <div class="a-knapp-rad">
+      <button class="a-knapp" type="submit">Lagre</button>
+      <label class="a-slett"><input type="checkbox" name="slett"> Slett når eg lagrar</label>
+    </div>
+  </form>
+</section>
+<% }) %>
+
+<section class="a-seksjon a-seksjon-ny">
+  <h2>➕ Ny referanse</h2>
+  <form method="post" action="/admin/referansar/ny">
+    <label for="ny-tekst">Omtale</label>
+    <textarea id="ny-tekst" name="tekst" rows="3" placeholder="Det kunden sa …"></textarea>
+    <div class="a-rad-3">
+      <div><label for="ny-namn">Namn</label><input id="ny-namn" name="namn"></div>
+      <div><label for="ny-kjelde">Kjelde</label><input id="ny-kjelde" name="kjelde"></div>
+    </div>
+    <button class="a-knapp" type="submit">Legg til</button>
+  </form>
+</section>
+
+<%- include('partials/admin-botn') %>

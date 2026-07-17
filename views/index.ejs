@@ -1,0 +1,100 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<section class="hero">
+  <svg class="hero-fjell" viewBox="0 0 1440 320" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path d="M0 320 L0 220 L260 90 L470 240 L720 60 L980 250 L1200 130 L1440 230 L1440 320 Z" fill="currentColor"/>
+  </svg>
+  <div class="ramme hero-inner">
+    <div class="hero-tekst">
+      <p class="hero-etikett">Godkjend mesterbedrift · Tømrarfaget</p>
+      <h1><%= c.heim.heroTittel %></h1>
+      <p class="hero-ingress"><%= c.heim.heroIngress %></p>
+      <div class="cta-knappar">
+        <a class="knapp knapp-rav" href="/kontakt#skjema">Be om uforpliktande tilbod</a>
+        <a class="knapp knapp-omriss-lys" href="<%= telHref(c.site.telefon) %>">Ring <%= c.site.telefon %></a>
+      </div>
+      <ul class="hero-fakta">
+        <li>✓ Mesterbedrift i Mesterregisteret</li>
+        <li>✓ Godkjend lærebedrift</li>
+        <li>✓ Lokal i <%= c.site.omrade %></li>
+      </ul>
+    </div>
+    <% if (c.heim.heroBilete) { %>
+      <figure class="hero-bilete">
+        <img src="/media/<%= c.heim.heroBilete %>" alt="<%= (c.bilete.find(b => b.fil === c.heim.heroBilete) || {}).alt || '' %>" width="560" height="420" fetchpriority="high">
+      </figure>
+    <% } %>
+  </div>
+</section>
+
+<section class="seksjon">
+  <div class="ramme">
+    <div class="kort-rad">
+      <% c.heim.punkt.forEach((p, i) => { %>
+        <article class="kort reveal" style="--forseink: <%= i * 90 %>ms">
+          <div class="kort-ikon" aria-hidden="true"><%= ['🏅','📍','🎓'][i] || '✓' %></div>
+          <h2><%= p.tittel %></h2>
+          <p><%= p.tekst %></p>
+        </article>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<section class="seksjon seksjon-sand">
+  <div class="ramme">
+    <div class="seksjon-topp reveal">
+      <h2>Det vi hjelper deg med</h2>
+      <a class="lenkje-pil" href="/tenester">Alle tenester <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="kort-rad">
+      <% c.tenester.slice(0, 3).forEach((t, i) => { %>
+        <a class="kort kort-lenkje reveal" style="--forseink: <%= i * 90 %>ms" href="/tenester/<%= t.slug %>">
+          <% if (t.bilete) { %>
+            <img class="kort-bilete" src="/media/<%= t.bilete %>" alt="" width="400" height="240" loading="lazy">
+          <% } else { %>
+            <%- include('partials/plasshaldar') %>
+          <% } %>
+          <h3><%= t.tittel %></h3>
+          <p><%= t.kort %></p>
+          <span class="lenkje-pil">Les meir <span aria-hidden="true">→</span></span>
+        </a>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<% if (c.referansar.vis && c.referansar.liste.length) { %>
+<section class="seksjon">
+  <div class="ramme">
+    <h2 class="reveal">Det seier kundane</h2>
+    <div class="kort-rad">
+      <% c.referansar.liste.forEach((r, i) => { %>
+        <blockquote class="kort sitat reveal" style="--forseink: <%= i * 90 %>ms">
+          <p>«<%= r.tekst %>»</p>
+          <footer>— <%= r.namn %><% if (r.kjelde) { %> <span class="sitat-kjelde">(<%= r.kjelde %>)</span><% } %></footer>
+        </blockquote>
+      <% }) %>
+    </div>
+  </div>
+</section>
+<% } %>
+
+<section class="seksjon seksjon-mork">
+  <div class="ramme delt reveal">
+    <div>
+      <h2>Meisterkompetanse du kan stole på</h2>
+      <p>Mesterbygg Stryn AS er registrert mesterbedrift i tømrarfaget i Mesterregisteret, det offentlege registeret for godkjende handverksmeistrar. Vi er òg godkjend lærebedrift og er med på å utdanne nye tømrarar.</p>
+      <a class="lenkje-pil lenkje-lys" href="/om-oss">Bli betre kjend med oss <span aria-hidden="true">→</span></a>
+    </div>
+    <ul class="merke-liste">
+      <li><strong>Mesterbedrift</strong><span>Registrert i Mesterregisteret</span></li>
+      <li><strong>Lærebedrift</strong><span>Godkjend i tømrarfaget (vilbli.no)</span></li>
+      <li><strong>5 tilsette</strong><span>Registrert i Brønnøysundregistra</span></li>
+    </ul>
+  </div>
+</section>
+
+<%- include('partials/cta-band') %>
+<%- include('partials/footer') %>

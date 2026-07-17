@@ -1,0 +1,46 @@
+</main>
+
+<div class="mobil-cta" aria-hidden="false">
+  <a class="knapp knapp-primar" href="/kontakt#skjema">Be om tilbod</a>
+  <a class="knapp knapp-lys" href="<%= telHref(c.site.telefon) %>">Ring <%= c.site.telefon %></a>
+</div>
+
+<footer class="botn">
+  <div class="ramme botn-inner">
+    <div>
+      <p class="botn-logo"><strong>MESTERBYGG</strong> STRYN</p>
+      <p><%= c.site.slagord %></p>
+      <p>Org.nr <%= c.site.orgnr %> · Stifta 2024</p>
+    </div>
+    <div>
+      <h2 class="botn-tittel">Kontakt</h2>
+      <p><a href="<%= telHref(c.site.telefon) %>"><%= c.site.telefon %></a></p>
+      <p><a href="mailto:<%= c.site.epost %>"><%= c.site.epost %></a></p>
+      <p><%= c.site.adresse.gate %>, <%= c.site.adresse.postnr %> <%= c.site.adresse.stad %></p>
+      <% if (c.site.opningstider) { %><p><%= c.site.opningstider %></p><% } %>
+    </div>
+    <div>
+      <h2 class="botn-tittel">Snarvegar</h2>
+      <ul class="botn-meny">
+        <li><a href="/tenester">Tenester</a></li>
+        <li><a href="/prosjekt">Prosjekt</a></li>
+        <li><a href="/om-oss">Om oss</a></li>
+        <li><a href="/kontakt">Kontakt</a></li>
+        <li><a href="/personvern">Personvern</a></li>
+      </ul>
+      <% if (c.site.sosiale.facebook || c.site.sosiale.instagram) { %>
+        <p>
+          <% if (c.site.sosiale.facebook) { %><a href="<%= c.site.sosiale.facebook %>">Facebook</a> <% } %>
+          <% if (c.site.sosiale.instagram) { %><a href="<%= c.site.sosiale.instagram %>">Instagram</a><% } %>
+        </p>
+      <% } %>
+    </div>
+  </div>
+  <div class="ramme botn-linje">
+    <p>© <%= new Date().getFullYear() %> <%= c.site.namn %>. Godkjend mesterbedrift i tømrarfaget og lærebedrift.</p>
+  </div>
+</footer>
+
+<script src="/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<%- include('partials/admin-topp', { tittel: 'Bilete', aktiv: 'bilete' }) %>
+
+<p class="a-ingress">Bileta blir automatisk komprimerte og tilpassa nettsida. Etter opplasting kan du bruke dei som hero-bilete, på tenester og i prosjekt. Skriv alltid ein god alt-tekst – det er viktig for blinde og svaksynte, og for Google.</p>
+
+<section class="a-seksjon">
+  <h2>Last opp</h2>
+  <form method="post" action="/admin/bilete/opplast" enctype="multipart/form-data">
+    <label for="filer">Vel bilete (du kan velje fleire)</label>
+    <input id="filer" name="filer" type="file" accept="image/*" multiple required>
+    <label for="alt">Alt-tekst (kva viser biletet?)</label>
+    <input id="alt" name="alt" placeholder="T.d. Nybygd einebustad med saltak i Stryn" maxlength="150">
+    <button class="a-knapp" type="submit">Last opp</button>
+  </form>
+</section>
+
+<% if (c.bilete.length) { %>
+<section class="a-seksjon">
+  <h2>Opplasta bilete (<%= c.bilete.length %>)</h2>
+  <div class="a-bilete-rad">
+    <% c.bilete.forEach((b) => { %>
+      <figure class="a-bilete-kort">
+        <img src="/media/<%= b.fil %>" alt="<%= b.alt %>" loading="lazy" width="200" height="130">
+        <figcaption><%= b.fil %></figcaption>
+        <form method="post" action="/admin/bilete/<%= encodeURIComponent(b.fil) %>/alt">
+          <label for="alt-<%= b.fil %>">Alt-tekst</label>
+          <input id="alt-<%= b.fil %>" name="alt" value="<%= b.alt %>" maxlength="150">
+          <button class="a-knapp a-knapp-liten" type="submit">Lagre alt-tekst</button>
+        </form>
+        <form method="post" action="/admin/bilete/<%= encodeURIComponent(b.fil) %>/slett" data-confirm="Slette biletet «<%= b.fil %>»? Det blir òg fjerna frå sider som brukar det.">
+          <button class="a-knapp a-knapp-raud a-knapp-liten" type="submit">Slett</button>
+        </form>
+      </figure>
+    <% }) %>
+  </div>
+</section>
+<% } else { %>
+<p>Ingen bilete er lasta opp enno. Sidene brukar tydeleg merkte plasshaldarar til de lastar opp eigne foto.</p>
+<% } %>
+
+<%- include('partials/admin-botn') %>

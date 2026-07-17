@@ -1,0 +1,13 @@
+# Render Blueprint – Mesterbygg Stryn AS
+# Gratisplan-webteneste. Løyndomar (ADMIN_PASSWORD_HASH, GITHUB_TOKEN, SMTP_*)
+# blir sette i Render-dashbordet – ALDRI her.
+services:
+  - type: web
+    name: mesterbygg-stryn
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: node server.js
+    envVars:
+      - key: NODE_VERSION
+        value: 24.18.0

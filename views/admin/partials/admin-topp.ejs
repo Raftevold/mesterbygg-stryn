@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="nn">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title><%= tittel %> – Admin – Mesterbygg Stryn</title>
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/admin.css">
+</head>
+<body>
+<header class="a-topp">
+  <div class="a-ramme a-topp-inner">
+    <a class="a-logo" href="/admin">🔧 Mesterbygg Stryn – admin</a>
+    <nav aria-label="Adminmeny">
+      <ul class="a-meny">
+        <li><a href="/admin" <%= aktiv === 'oversikt' ? 'aria-current="page"' : '' %>>Oversikt</a></li>
+        <li><a href="/admin/tekst" <%= aktiv === 'tekst' ? 'aria-current="page"' : '' %>>Tekst</a></li>
+        <li><a href="/admin/tenester" <%= aktiv === 'tenester' ? 'aria-current="page"' : '' %>>Tenester</a></li>
+        <li><a href="/admin/prosjekt" <%= aktiv === 'prosjekt' ? 'aria-current="page"' : '' %>>Prosjekt</a></li>
+        <li><a href="/admin/referansar" <%= aktiv === 'referansar' ? 'aria-current="page"' : '' %>>Referansar</a></li>
+        <li><a href="/admin/bilete" <%= aktiv === 'bilete' ? 'aria-current="page"' : '' %>>Bilete</a></li>
+        <li><a href="/admin/kontaktinfo" <%= aktiv === 'kontaktinfo' ? 'aria-current="page"' : '' %>>Kontaktinfo</a></li>
+        <li><a href="/admin/varsel" <%= aktiv === 'varsel' ? 'aria-current="page"' : '' %>>Varsellinje</a></li>
+        <li><a href="/admin/seo" <%= aktiv === 'seo' ? 'aria-current="page"' : '' %>>SEO</a></li>
+        <li><a href="/admin/forespurnader" <%= aktiv === 'forespurnader' ? 'aria-current="page"' : '' %>>Førespurnader</a></li>
+      </ul>
+    </nav>
+    <div class="a-topp-hogre">
+      <a href="/" target="_blank" rel="noopener">Sjå nettsida ↗</a>
+      <form method="post" action="/admin/logout"><button class="a-knapp a-knapp-grå" type="submit">Logg ut</button></form>
+    </div>
+  </div>
+</header>
+<main class="a-ramme a-hovud">
+  <h1><%= tittel %></h1>
+  <% if (typeof lagra !== 'undefined' && lagra) { %>
+    <p class="a-melding a-melding-ok" role="status">✓ Lagra. Endringa er synleg på nettsida med ein gong.</p>
+  <% } %>
+  <% if (typeof feil !== 'undefined' && feil) { %>
+    <p class="a-melding a-melding-feil" role="alert"><%= feil %></p>
+  <% } %>

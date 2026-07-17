@@ -1,0 +1,24 @@
+<%- include('partials/admin-topp', { tittel: 'Førespurnader', aktiv: 'forespurnader' }) %>
+
+<p class="a-ingress">Innsende kontaktskjema. Hugs å slette førespurnader når dei er ferdig handsama (personvern).</p>
+
+<% if (liste.length === 0) { %>
+  <p>Ingen førespurnader enno.</p>
+<% } %>
+
+<% liste.forEach((s) => { %>
+<section class="a-seksjon">
+  <h2><%= s.namn %> <span class="a-svak"><%= new Date(s.tidspunkt).toLocaleString('nn-NO', { dateStyle: 'short', timeStyle: 'short' }) %></span></h2>
+  <ul class="a-status">
+    <% if (s.telefon) { %><li>📞 <a href="tel:<%= s.telefon.replace(/\s/g,'') %>"><%= s.telefon %></a></li><% } %>
+    <% if (s.epost) { %><li>✉️ <a href="mailto:<%= s.epost %>"><%= s.epost %></a></li><% } %>
+    <li><%= s.epostSendt ? '✅ Send vidare på e-post' : 'ℹ️ Ikkje send på e-post (SMTP ikkje sett opp)' %></li>
+  </ul>
+  <blockquote class="a-sitat"><%= s.melding %></blockquote>
+  <form method="post" action="/admin/forespurnader/<%= s.id %>/slett" data-confirm="Slette førespurnaden frå <%= s.namn %>?">
+    <button class="a-knapp a-knapp-raud a-knapp-liten" type="submit">Slett</button>
+  </form>
+</section>
+<% }) %>
+
+<%- include('partials/admin-botn') %>

@@ -1,0 +1,44 @@
+<%- include('partials/admin-topp', { tittel: 'Prosjekt', aktiv: 'prosjekt' }) %>
+
+<p class="a-ingress">Prosjekta blir viste på /prosjekt. Last først opp bilete under «Bilete», så kan du velje dei her. Hald Ctrl (⌘ på Mac) for å velje fleire bilete.</p>
+
+<% c.prosjekt.liste.forEach((p) => { %>
+<section class="a-seksjon">
+  <h2><%= p.tittel %></h2>
+  <form method="post" action="/admin/prosjekt/<%= p.id %>">
+    <label for="tittel-<%= p.id %>">Tittel</label>
+    <input id="tittel-<%= p.id %>" name="tittel" value="<%= p.tittel %>" maxlength="80">
+    <label for="skildring-<%= p.id %>">Skildring</label>
+    <textarea id="skildring-<%= p.id %>" name="skildring" rows="4"><%= p.skildring %></textarea>
+    <label for="bilete-<%= p.id %>">Bilete (fleirval)</label>
+    <select id="bilete-<%= p.id %>" name="bilete" multiple size="5">
+      <% c.bilete.forEach((b) => { %>
+        <option value="<%= b.fil %>" <%= p.bilete.includes(b.fil) ? 'selected' : '' %>><%= b.fil %></option>
+      <% }) %>
+    </select>
+    <div class="a-knapp-rad">
+      <button class="a-knapp" type="submit">Lagre</button>
+      <label class="a-slett"><input type="checkbox" name="slett"> Slett prosjektet når eg lagrar</label>
+    </div>
+  </form>
+</section>
+<% }) %>
+
+<section class="a-seksjon a-seksjon-ny">
+  <h2>➕ Nytt prosjekt</h2>
+  <form method="post" action="/admin/prosjekt/ny">
+    <label for="ny-tittel">Tittel</label>
+    <input id="ny-tittel" name="tittel" maxlength="80" placeholder="T.d. Nybygg einebustad, Stryn">
+    <label for="ny-skildring">Skildring</label>
+    <textarea id="ny-skildring" name="skildring" rows="3"></textarea>
+    <label for="ny-bilete">Bilete (fleirval)</label>
+    <select id="ny-bilete" name="bilete" multiple size="5">
+      <% c.bilete.forEach((b) => { %>
+        <option value="<%= b.fil %>"><%= b.fil %></option>
+      <% }) %>
+    </select>
+    <button class="a-knapp" type="submit">Opprett prosjekt</button>
+  </form>
+</section>
+
+<%- include('partials/admin-botn') %>

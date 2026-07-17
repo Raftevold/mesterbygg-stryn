@@ -1,0 +1,35 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<section class="sidetopp">
+  <div class="ramme">
+    <h1>Personvernerklæring</h1>
+    <p class="ingress">Slik behandlar <%= c.site.namn %> personopplysningar på denne nettstaden.</p>
+  </div>
+</section>
+
+<section class="seksjon">
+  <div class="ramme brodtekst smal">
+    <h2>Behandlingsansvarleg</h2>
+    <p><%= c.site.namn %> (org.nr <%= c.site.orgnr %>), <%= c.site.adresse.gate %>, <%= c.site.adresse.postnr %> <%= c.site.adresse.stad %>, er behandlingsansvarleg for personopplysningar som blir samla inn på denne nettstaden. Kontakt oss på <a href="mailto:<%= c.site.epost %>"><%= c.site.epost %></a> eller telefon <a href="<%= telHref(c.site.telefon) %>"><%= c.site.telefon %></a> om du har spørsmål.</p>
+
+  <h2>Informasjonskapslar (cookies)</h2>
+    <p>Dei opne sidene på denne nettstaden brukar <strong>ingen informasjonskapslar</strong> og ingen sporings- eller analyseverktøy frå tredjepart. Difor treng vi heller ikkje vise deg eit samtykkevindauge.</p>
+    <p>Unntaket er administrasjonsområdet for tilsette i bedrifta, som brukar éin strengt nødvendig innloggingskapsel («sid»). Slike nødvendige kapslar krev ikkje samtykke etter ekomlova § 3-15.</p>
+
+    <h2>Kontaktskjemaet</h2>
+    <p>Når du sender inn kontaktskjemaet, behandlar vi opplysningane du sjølv oppgir: namn, telefonnummer og/eller e-postadresse, og meldinga di. Behandlingsgrunnlaget er GDPR artikkel 6 nr. 1 bokstav b (gjennomføre tiltak før ein eventuell avtale) og bokstav f (svare på førespurnader).</p>
+    <p>Opplysningane blir brukte berre til å svare på førespurnaden din<% if (smtpAktiv) { %> og blir sende vidare til e-posten vår<% } %>. Dei blir sletta når førespurnaden er ferdig handsama, seinast innan 12 månader.</p>
+
+    <h2>Tenarloggar og drift</h2>
+    <p>Nettstaden blir driven på plattforma Render (Render Services, Inc.). Som ledd i vanleg drift kan tenaren logge IP-adresser og tekniske hendingar i ei kort periode av tryggingsomsyn. Førespurnader frå kontaktskjemaet blir lagra i ein tilgangsstyrt database hos same driftsleverandør, og berre bedrifta har tilgang til dei.</p>
+
+    <h2>Rettane dine</h2>
+    <p>Du har rett til innsyn i, retting av og sletting av personopplysningane dine, og til å protestere mot eller krevje avgrensa behandling. Ta kontakt på <a href="mailto:<%= c.site.epost %>"><%= c.site.epost %></a>, så hjelper vi deg. Du kan òg klage til <a href="https://www.datatilsynet.no" rel="noopener">Datatilsynet</a> om du meiner behandlinga vår bryt med regelverket.</p>
+
+    <h2>Endringar</h2>
+    <p>Denne erklæringa kan bli oppdatert ved behov, til dømes om nettstaden får ny funksjonalitet. Vesentlege endringar blir varsla på denne sida.</p>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

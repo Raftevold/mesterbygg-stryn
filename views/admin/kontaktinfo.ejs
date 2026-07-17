@@ -1,0 +1,28 @@
+<%- include('partials/admin-topp', { tittel: 'Kontaktinfo', aktiv: 'kontaktinfo' }) %>
+
+<section class="a-seksjon">
+  <form method="post" action="/admin/kontaktinfo">
+    <div class="a-rad-3">
+      <div><label for="telefon">Telefon</label><input id="telefon" name="telefon" value="<%= c.site.telefon %>"></div>
+      <div><label for="epost">E-post</label><input id="epost" name="epost" type="email" value="<%= c.site.epost %>"></div>
+    </div>
+    <div class="a-rad-3">
+      <div><label for="gate">Gateadresse</label><input id="gate" name="gate" value="<%= c.site.adresse.gate %>"></div>
+      <div><label for="postnr">Postnr</label><input id="postnr" name="postnr" value="<%= c.site.adresse.postnr %>"></div>
+      <div><label for="stad">Stad</label><input id="stad" name="stad" value="<%= c.site.adresse.stad %>"></div>
+    </div>
+    <label for="opningstider">Opningstider (valfritt, t.d. «Måndag–fredag 07–15»)</label>
+    <input id="opningstider" name="opningstider" value="<%= c.site.opningstider %>">
+    <label for="omrade">Område de tek oppdrag i</label>
+    <input id="omrade" name="omrade" value="<%= c.site.omrade %>">
+    <label for="slagord">Slagord (vist øvst og i footer)</label>
+    <input id="slagord" name="slagord" value="<%= c.site.slagord %>" maxlength="80">
+    <div class="a-rad-3">
+      <div><label for="facebook">Facebook-lenkje (valfritt)</label><input id="facebook" name="facebook" type="url" value="<%= c.site.sosiale.facebook %>" placeholder="https://facebook.com/…"></div>
+      <div><label for="instagram">Instagram-lenkje (valfritt)</label><input id="instagram" name="instagram" type="url" value="<%= c.site.sosiale.instagram %>" placeholder="https://instagram.com/…"></div>
+    </div>
+    <button class="a-knapp" type="submit">Lagre kontaktinfo</button>
+  </form>
+</section>
+
+<%- include('partials/admin-botn') %>

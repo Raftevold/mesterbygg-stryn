@@ -1,0 +1,44 @@
+<% if (c.varsel.aktiv && c.varsel.tekst) { %>
+  <% if (c.varsel.lenkje) { %>
+    <a class="varsellinje" href="<%= c.varsel.lenkje %>"><span><%= c.varsel.tekst %></span><span class="varsel-pil" aria-hidden="true">→</span></a>
+  <% } else { %>
+    <div class="varsellinje"><span><%= c.varsel.tekst %></span></div>
+  <% } %>
+<% } %>
+
+<div class="topplinje">
+  <div class="ramme topplinje-inner">
+    <span><%= c.site.slagord %></span>
+    <span class="topplinje-kontakt">
+      <a href="<%= telHref(c.site.telefon) %>">📞 <%= c.site.telefon %></a>
+      <a class="skjul-mobil" href="mailto:<%= c.site.epost %>"><%= c.site.epost %></a>
+    </span>
+  </div>
+</div>
+
+<header class="hovudtopp">
+  <div class="ramme hovudtopp-inner">
+    <a class="logo" href="/" aria-label="<%= c.site.namn %> – til framsida">
+      <svg class="logo-merke" viewBox="0 0 44 36" aria-hidden="true" focusable="false">
+        <path d="M2 22 L22 4 L42 22" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="14" y="22" width="16" height="10" rx="1.5" fill="currentColor"/>
+      </svg>
+      <span class="logo-tekst"><strong>MESTERBYGG</strong><span>STRYN</span></span>
+    </a>
+    <nav aria-label="Hovudmeny">
+      <button class="meny-knapp" type="button" aria-expanded="false" aria-controls="hovudmeny">
+        <span class="meny-ikon" aria-hidden="true"></span> Meny
+      </button>
+      <ul id="hovudmeny" class="meny">
+        <li><a href="/" <%= path === '/' ? 'aria-current="page"' : '' %>>Heim</a></li>
+        <li><a href="/tenester" <%= path.startsWith('/tenester') ? 'aria-current="page"' : '' %>>Tenester</a></li>
+        <li><a href="/prosjekt" <%= path === '/prosjekt' ? 'aria-current="page"' : '' %>>Prosjekt</a></li>
+        <li><a href="/om-oss" <%= path === '/om-oss' ? 'aria-current="page"' : '' %>>Om oss</a></li>
+        <li><a href="/kontakt" <%= path === '/kontakt' ? 'aria-current="page"' : '' %>>Kontakt</a></li>
+        <li class="meny-cta"><a class="knapp knapp-primar" href="/kontakt#skjema">Be om tilbod</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="hovudinnhald">

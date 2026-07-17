@@ -1,0 +1,32 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<section class="sidetopp">
+  <div class="ramme">
+    <p class="brodsmular"><a href="/tenester">Tenester</a> / <%= teneste.tittel %></p>
+    <h1><%= teneste.tittel %></h1>
+    <p class="ingress"><%= teneste.kort %></p>
+  </div>
+</section>
+
+<section class="seksjon">
+  <div class="ramme delt">
+    <div class="brodtekst reveal">
+      <p><%- nl2br(teneste.brodtekst) %></p>
+      <div class="cta-knappar">
+        <a class="knapp knapp-primar" href="/kontakt#skjema">Be om tilbod</a>
+        <a class="knapp knapp-omriss" href="<%= telHref(c.site.telefon) %>">Ring <%= c.site.telefon %></a>
+      </div>
+    </div>
+    <div class="reveal">
+      <% if (teneste.bilete) { %>
+        <img class="ramme-bilete" src="/media/<%= teneste.bilete %>" alt="<%= (c.bilete.find(b => b.fil === teneste.bilete) || {}).alt || teneste.tittel %>" width="560" height="380">
+      <% } else { %>
+        <%- include('partials/plasshaldar') %>
+      <% } %>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/cta-band') %>
+<%- include('partials/footer') %>

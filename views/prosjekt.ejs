@@ -1,0 +1,50 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<section class="sidetopp">
+  <div class="ramme">
+    <h1>Prosjekt</h1>
+    <p class="ingress"><%= c.prosjekt.ingress %></p>
+  </div>
+</section>
+
+<section class="seksjon">
+  <div class="ramme">
+    <% if (c.prosjekt.liste.length === 0) { %>
+      <div class="delt">
+        <div class="reveal">
+          <h2>Galleriet er under oppbygging</h2>
+          <p>Vi hentar inn bilete frå eigne prosjekt no. I mellomtida: ta kontakt, så fortel vi gjerne om arbeid vi har gjort og set deg i kontakt med referansar.</p>
+          <div class="cta-knappar">
+            <a class="knapp knapp-primar" href="/kontakt#skjema">Spør oss om referansar</a>
+          </div>
+        </div>
+        <div class="reveal"><%- include('partials/plasshaldar') %></div>
+      </div>
+    <% } else { %>
+      <div class="kort-rad">
+        <% c.prosjekt.liste.forEach((p, i) => { %>
+          <article class="kort reveal" style="--forseink: <%= (i % 3) * 90 %>ms">
+            <% if (p.bilete.length) { %>
+              <img class="kort-bilete" src="/media/<%= p.bilete[0] %>" alt="<%= (c.bilete.find(b => b.fil === p.bilete[0]) || {}).alt || p.tittel %>" width="400" height="240" loading="lazy">
+            <% } else { %>
+              <%- include('partials/plasshaldar') %>
+            <% } %>
+            <h2><%= p.tittel %></h2>
+            <p><%- nl2br(p.skildring) %></p>
+            <% if (p.bilete.length > 1) { %>
+              <div class="galleri-rad">
+                <% p.bilete.slice(1).forEach((b) => { %>
+                  <img src="/media/<%= b %>" alt="<%= (c.bilete.find(x => x.fil === b) || {}).alt || p.tittel %>" width="120" height="90" loading="lazy">
+                <% }) %>
+              </div>
+            <% } %>
+          </article>
+        <% }) %>
+      </div>
+    <% } %>
+  </div>
+</section>
+
+<%- include('partials/cta-band') %>
+<%- include('partials/footer') %>

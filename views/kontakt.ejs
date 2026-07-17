@@ -1,0 +1,86 @@
+<%- include('partials/head') %>
+<%- include('partials/header') %>
+
+<section class="sidetopp">
+  <div class="ramme">
+    <h1>Kontakt oss</h1>
+    <p class="ingress"><%= c.kontakt.ingress %></p>
+  </div>
+</section>
+
+<section class="seksjon">
+  <div class="ramme delt">
+    <div id="skjema" class="reveal">
+      <h2>Be om tilbod</h2>
+
+      <% if (sendt) { %>
+        <div class="melding melding-ok" role="status">
+          <strong>Takk for førespurnaden!</strong> Vi tek kontakt så snart vi kan.
+          Hastar det? Ring oss på <a href="<%= telHref(c.site.telefon) %>"><%= c.site.telefon %></a>.
+        </div>
+      <% } %>
+      <% if (feil) { %>
+        <div class="melding melding-feil" role="alert"><%= feil %></div>
+      <% } %>
+
+      <form method="post" action="/kontakt" novalidate>
+        <div class="felt">
+          <label for="namn">Namn <span aria-hidden="true">*</span></label>
+          <input id="namn" name="namn" type="text" required autocomplete="name" value="<%= verdiar.namn || '' %>">
+        </div>
+        <div class="felt-rad">
+          <div class="felt">
+            <label for="telefon">Telefon</label>
+            <input id="telefon" name="telefon" type="tel" autocomplete="tel" value="<%= verdiar.telefon || '' %>">
+          </div>
+          <div class="felt">
+            <label for="epost">E-post</label>
+            <input id="epost" name="epost" type="email" autocomplete="email" value="<%= verdiar.epost || '' %>">
+          </div>
+        </div>
+        <p class="felt-hint">Oppgi telefon eller e-post, slik at vi kan nå deg.</p>
+        <div class="felt">
+          <label for="melding">Kva kan vi hjelpe deg med? <span aria-hidden="true">*</span></label>
+          <textarea id="melding" name="melding" rows="6" required><%= verdiar.melding || '' %></textarea>
+        </div>
+        <div class="felt-skjult" aria-hidden="true">
+          <label for="nettstad">La dette feltet stå tomt</label>
+          <input id="nettstad" name="nettstad" type="text" tabindex="-1" autocomplete="off">
+        </div>
+        <p class="felt-hint">Når du sender skjemaet, brukar vi opplysningane berre til å svare på førespurnaden din. Les meir i <a href="/personvern">personvernerklæringa</a>.</p>
+        <button class="knapp knapp-primar" type="submit">Send førespurnad</button>
+      </form>
+    </div>
+
+    <aside class="reveal">
+      <h2>Direkte kontakt</h2>
+      <ul class="kontakt-liste">
+        <li>
+          <strong>Telefon</strong>
+          <a href="<%= telHref(c.site.telefon) %>"><%= c.site.telefon %></a>
+        </li>
+        <li>
+          <strong>E-post</strong>
+          <a href="mailto:<%= c.site.epost %>"><%= c.site.epost %></a>
+        </li>
+        <li>
+          <strong>Adresse</strong>
+          <span><%= c.site.adresse.gate %>, <%= c.site.adresse.postnr %> <%= c.site.adresse.stad %></span>
+        </li>
+        <% if (c.site.opningstider) { %>
+        <li>
+          <strong>Opningstider</strong>
+          <span><%= c.site.opningstider %></span>
+        </li>
+        <% } %>
+        <li>
+          <strong>Org.nr</strong>
+          <span><%= c.site.orgnr %></span>
+        </li>
+      </ul>
+      <p><a class="lenkje-pil" href="https://www.google.com/maps/search/<%= encodeURIComponent(c.site.namn + ' ' + c.site.adresse.stad) %>" rel="noopener">Finn oss på Google Maps <span aria-hidden="true">→</span></a></p>
+    </aside>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
